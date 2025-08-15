@@ -1,20 +1,26 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Smooth scrolling for navigation links
+    // Select all <a> tags that are children of .nav-menu or .hero-actions
     document.querySelectorAll('.nav-menu a, .hero-actions a').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
+    anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
 
-            const targetId = this.getAttribute('href');
-            if (targetId.startsWith('#')) { // Ensure it's an internal link
-                const targetSection = document.querySelector(targetId);
-                if (targetSection) {
-                    targetSection.scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                }
+        // ONLY prevent default if the href starts with '#' (indicating an internal anchor link)
+        if (href && href.startsWith('#')) {
+            e.preventDefault(); // Prevent the default link behavior (e.g., jumping)
+
+            const targetSection = document.querySelector(href);
+            if (targetSection) {
+                targetSection.scrollIntoView({
+                    behavior: 'smooth'
+                });
             }
-        });
+        }
+        // If the href does NOT start with '#', allow the default behavior (e.g., mailto, download, external links)
+        // No else block or e.preventDefault() here means the browser handles it normally.
     });
+});
+
 
     // Dark/Light Mode Toggle
     const themeToggle = document.getElementById('theme-toggle');

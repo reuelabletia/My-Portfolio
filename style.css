@@ -104,14 +104,17 @@ ul {
 
 /* Buttons */
 .btn {
-    display: inline-block;
+    display: inline-flex; /* Changed from inline-block to inline-flex - KEPT */
+    align-items: center; /* Vertically center content - KEPT */
+    justify-content: center; /* Horizontally center content - KEPT */
     padding: 0.75rem 1.5rem;
     border-radius: var(--border-radius);
     font-weight: 500;
-    text-align: center;
+    /* text-align: center; -- No longer strictly needed due to justify-content */
     cursor: pointer;
     transition: all var(--transition-speed);
     border: 2px solid transparent;
+    will-change: transform, background-color, color; /* ADDED THIS LINE */
 }
 
 .btn i {
@@ -120,26 +123,27 @@ ul {
 
 .primary-btn {
     background-color: var(--primary-color);
-    color: #fff;
+    color: #fff; /* Initial text color is white */
     border-color: var(--primary-color);
 }
 
 .primary-btn:hover {
     background-color: var(--accent-color);
     border-color: var(--accent-color);
+    color: #fff; /* ADDED THIS LINE - Explicitly ensure text color is white on hover */
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
 .secondary-btn {
     background-color: transparent;
-    color: var(--primary-color);
+    color: var(--primary-color); /* Initial text color is primary-color */
     border-color: var(--primary-color);
 }
 
 .secondary-btn:hover {
     background-color: var(--primary-color);
-    color: #fff;
+    color: #fff; /* Text color becomes white on hover - THIS WAS ALREADY PRESENT */
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
@@ -1078,7 +1082,7 @@ section:last-of-type {
         grid-template-columns: 1fr;
     }
     .cert-card h3 {
-        font-size: 1rem;
+        font-size: 1.0rem; /* Adjusted for even smaller screens */
     }
     .cert-card p {
         font-size: 0.8rem;
