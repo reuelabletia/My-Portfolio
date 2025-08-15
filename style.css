@@ -1,0 +1,1101 @@
+/* Global Variables for Easy Customization (Light/Dark Mode) */
+:root {
+    /* Light Mode Colors */
+    --primary-color: #1E3A8A; /* Deep Blue */
+    --secondary-color: #059669; /* Tech Green */
+    --accent-color: #FF7F00; /* Orange Accent */
+    --background-color: #F3F4F6; /* Light Gray */
+    --card-background: #FFFFFF;
+    --text-color: #1F2937; /* Dark Gray */
+    --light-text-color: #4B5563; /* Medium Gray */
+    --border-color: #E5E7EB;
+    --hero-overlay-color: rgba(30, 58, 138, 0.8); /* Primary color with transparency */
+
+    /* Typography */
+    --font-heading: 'Montserrat', sans-serif;
+    --font-body: 'Inter', sans-serif;
+
+    /* Spacing */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 2rem;
+    --spacing-lg: 3rem; /* Slightly reduced for better mobile density */
+    --spacing-xl: 5rem; /* Slightly reduced for better mobile density */
+
+    /* Border Radius */
+    --border-radius: 8px;
+
+    /* Transitions */
+    --transition-speed: 0.3s ease-in-out;
+}
+
+/* Dark Mode Overrides */
+body.dark-mode {
+    --primary-color: #6366F1; /* Indigo */
+    --secondary-color: #10B981; /* Emerald Green */
+    --accent-color: #FBBF24; /* Amber Yellow */
+    --background-color: #111827; /* Dark Blue-Gray */
+    --card-background: #1F2937;
+    --text-color: #F3F4F6; /* Light Gray */
+    --light-text-color: #D1D5DB; /* Lighter Gray */
+    --border-color: #374151;
+    --hero-overlay-color: rgba(17, 24, 39, 0.8); /* Dark background with transparency */
+}
+
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--text-color);
+    background-color: var(--background-color);
+    line-height: 1.6;
+    transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+/* This is important for preventing scroll when mobile menu is open */
+body.no-scroll {
+    overflow: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+}
+
+h1, h2, h3 {
+    font-family: var(--font-heading);
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.2;
+    transition: color var(--transition-speed);
+}
+
+h1 { font-size: 3.5rem; } /* Default desktop size */
+h2 { font-size: 2.5rem; margin-bottom: var(--spacing-md); text-align: center; }
+h3 { font-size: 1.8rem; }
+
+p {
+    margin-bottom: 1rem;
+    color: var(--light-text-color);
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color var(--transition-speed);
+}
+
+a:hover {
+    color: var(--accent-color);
+}
+
+ul {
+    list-style: none;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--border-radius);
+    font-weight: 500;
+    text-align: center;
+    cursor: pointer;
+    transition: all var(--transition-speed);
+    border: 2px solid transparent;
+}
+
+.btn i {
+    margin-left: 0.5rem;
+}
+
+.primary-btn {
+    background-color: var(--primary-color);
+    color: #fff;
+    border-color: var(--primary-color);
+}
+
+.primary-btn:hover {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.secondary-btn {
+    background-color: transparent;
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.secondary-btn:hover {
+    background-color: var(--primary-color);
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.btn-sm {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+}
+
+/* Header & Navigation */
+.header {
+    background-color: var(--card-background);
+    padding: 1rem 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: background-color var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between; /* Ensures logo is left, actions right */
+    align-items: center;
+}
+
+.logo {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color var(--transition-speed);
+}
+
+.logo .checkmark {
+    color: var(--secondary-color);
+    margin-left: 5px;
+}
+
+.nav-menu ul {
+    display: flex;
+    gap: var(--spacing-md);
+}
+
+.nav-menu a {
+    font-weight: 500;
+    color: var(--text-color);
+    position: relative;
+}
+
+.nav-menu a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: var(--accent-color);
+    bottom: -5px;
+    left: 0;
+    transition: width var(--transition-speed);
+}
+
+.nav-menu a:hover::after {
+    width: 100%;
+}
+
+.header-actions {
+    display: flex;
+    gap: var(--spacing-sm);
+    align-items: center;
+}
+
+.theme-toggle, .mobile-nav-toggle {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text-color);
+    transition: color var(--transition-speed), transform var(--transition-speed);
+}
+
+.theme-toggle:hover, .mobile-nav-toggle:hover {
+    color: var(--accent-color);
+    transform: scale(1.1);
+}
+
+/* Hide mobile toggle by default on desktop */
+.mobile-nav-toggle {
+    display: none;
+}
+
+/* Hero Section */
+.hero {
+    background-color: var(--background-color);
+    padding: var(--spacing-xl) 0;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    text-align: center; /* Center content by default for smaller screens */
+}
+
+.hero-content {
+    display: flex;
+    flex-direction: column; /* Stack on mobile by default */
+    align-items: center;
+    gap: var(--spacing-lg);
+}
+
+.hero-text {
+    flex: 1; /* Take full width on stacked layout */
+    max-width: 800px; /* Constrain text width on large screens */
+}
+
+.hero-text h1 {
+    font-size: clamp(2.5rem, 8vw, 4rem); /* Responsive font size */
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.hero-text .hero-subtext {
+    font-size: clamp(1.1rem, 3.5vw, 1.5rem); /* Responsive font size */
+    color: var(--light-text-color);
+    margin-bottom: var(--spacing-md);
+}
+
+.hero-bullets ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-bottom: var(--spacing-md);
+    justify-content: center; /* Center bullets on mobile */
+}
+
+.hero-bullets li {
+    font-size: 1rem; /* Adjusted for mobile readability */
+    color: var(--text-color);
+}
+
+.hero-bullets i {
+    color: var(--secondary-color);
+    margin-right: 0.5rem;
+}
+
+.hero-actions {
+    display: flex;
+    gap: var(--spacing-sm);
+    flex-wrap: wrap;
+    justify-content: center; /* Center buttons on mobile */
+}
+
+.hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%; /* Ensure it takes available width */
+    max-width: 300px; /* Max size for the image on smaller screens */
+}
+
+.hero-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid var(--primary-color);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    position: relative;
+    z-index: 2;
+    transition: border-color var(--transition-speed);
+    animation: float 3s ease-in-out infinite; /* Keep animation */
+}
+
+/* Optional: Subtle animation for hero image */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+/* General Section Styling */
+section {
+    padding: var(--spacing-xl) 0;
+    border-bottom: 1px solid var(--border-color);
+    transition: background-color var(--transition-speed), border-color var(--transition-speed);
+}
+
+section:last-of-type {
+    border-bottom: none;
+}
+
+/* About Me Section */
+.about-content {
+    display: flex;
+    flex-direction: column; /* Stack on mobile by default */
+    align-items: center; /* Center content horizontally */
+    gap: var(--spacing-lg);
+    text-align: center; /* Center text by default */
+}
+
+.about-text {
+    flex: 2;
+    max-width: 800px;
+}
+
+.about-text p strong {
+    color: var(--primary-color);
+}
+
+.about-visuals {
+    flex: 1;
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column; /* Stack timeline items within visuals */
+    gap: var(--spacing-md);
+    padding: var(--spacing-md);
+    background-color: var(--card-background);
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    transition: background-color var(--transition-speed);
+    /* For visuals, align items centrally on mobile */
+    align-items: center; /* This aligns the timeline-item blocks themselves within the card */
+}
+
+/* --- FIX FOR TIMELINE ITEMS --- */
+.timeline-item {
+    display: flex; /* Use flexbox for item itself */
+    flex-direction: column; /* Stack icon, heading, paragraph vertically */
+    align-items: center; /* Center the icon, heading, and paragraph horizontally */
+    gap: 0.5rem; /* Space between icon, heading, and paragraph */
+    padding: 0; /* No extra padding for this item itself */
+    text-align: center; /* Ensure text inside is centered on mobile */
+    margin-bottom: 1rem; /* Space between timeline items */
+    width: 100%; /* Ensure it takes available width within about-visuals */
+}
+
+.timeline-item i {
+    font-size: 1.8rem;
+    color: var(--secondary-color);
+    margin-bottom: 0.5rem; /* Space below icon */
+}
+
+.timeline-item h3 {
+    margin-top: 0; /* Override default h3 margin-top */
+    color: var(--text-color);
+    font-size: 1.4rem;
+    line-height: 1.2; /* Tighten line height for multi-line headings */
+}
+.timeline-item p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 0;
+    color: var(--light-text-color);
+    max-width: 250px; /* Constrain paragraph width for better readability within the item */
+    margin-left: auto; /* Center the paragraph if max-width is applied */
+    margin-right: auto;
+}
+/* --- END FIX FOR TIMELINE ITEMS --- */
+
+
+/* Skills Section */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Adjusted minmax */
+    gap: var(--spacing-md);
+}
+
+.skill-column {
+    background-color: var(--card-background);
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    transition: background-color var(--transition-speed), transform var(--transition-speed);
+}
+
+.skill-column:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.skill-column h3 {
+    text-align: center;
+    margin-bottom: var(--spacing-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    color: var(--primary-color);
+}
+
+.skill-column h3 i {
+    color: var(--secondary-color);
+}
+
+.skill-column ul {
+    list-style: none;
+    padding-left: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+}
+
+.skill-column li {
+    background-color: var(--background-color);
+    padding: 0.6rem 1rem;
+    border-radius: var(--border-radius);
+    font-size: 0.95rem;
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    transition: background-color var(--transition-speed), border-color var(--transition-speed);
+}
+
+.skill-column li:hover {
+    background-color: var(--primary-color);
+    color: #fff;
+    border-color: var(--primary-color);
+}
+
+/* Projects Section */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Adjusted minmax */
+    gap: var(--spacing-md);
+}
+
+.project-card {
+    background-color: var(--card-background);
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    overflow: hidden;
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed), background-color var(--transition-speed);
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.project-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.project-card:hover img {
+    transform: scale(1.05);
+}
+
+.project-info {
+    padding: var(--spacing-md);
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-info h3 {
+    margin-top: 0;
+    font-size: 1.6rem;
+    color: var(--primary-color);
+}
+
+.project-info p {
+    font-size: 0.95rem;
+    color: var(--light-text-color);
+    margin-bottom: 0.5rem;
+}
+
+.project-tech-stack {
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.project-tools, .project-impact {
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+    color: var(--text-color);
+}
+
+.project-tools i, .project-impact i {
+    color: var(--secondary-color);
+    margin-right: 0.5rem;
+}
+
+.project-info .btn {
+    margin-top: auto;
+    align-self: flex-start;
+}
+
+.private-project .private-badge {
+    background-color: #EF4444;
+    color: #fff;
+    font-size: 0.8rem;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    margin-left: 0.5rem;
+    vertical-align: middle;
+}
+.private-project .disabled {
+    pointer-events: none;
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Automation & Testing Demos */
+.demos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Adjusted minmax */
+    gap: var(--spacing-md);
+}
+
+.demo-item {
+    background-color: var(--card-background);
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    text-align: center;
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed), background-color var(--transition-speed);
+}
+
+.demo-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.demo-item h3 {
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-sm);
+}
+
+.demo-video {
+    width: 100%;
+    height: 200px;
+    background-color: #000;
+    border-radius: var(--border-radius);
+    object-fit: contain;
+    margin-bottom: var(--spacing-sm);
+}
+
+.github-link {
+    text-align: center;
+    margin-top: var(--spacing-lg);
+}
+
+.github-link .btn {
+    font-size: 1.1rem;
+}
+
+/* Certifications Section */
+.cert-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* Adjusted minmax for smaller cards */
+    gap: var(--spacing-md);
+    justify-content: center;
+}
+
+.cert-card {
+    background-color: var(--card-background);
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    text-align: center;
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed), background-color var(--transition-speed);
+}
+
+.cert-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.cert-card img {
+    max-width: 100px;
+    height: auto;
+    margin-bottom: var(--spacing-sm);
+}
+
+.cert-card h3 {
+    font-size: 1.2rem;
+    margin-top: 0;
+    color: var(--text-color);
+}
+
+.cert-card p {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    color: var(--light-text-color);
+}
+
+.cert-link {
+    display: inline-block;
+    color: var(--secondary-color);
+    font-weight: 500;
+}
+.cert-link:hover {
+    color: var(--primary-color);
+}
+
+/* Blog Section (Optional - uncomment in HTML to use) */
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-md);
+}
+
+.blog-post-card {
+    background-color: var(--card-background);
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    overflow: hidden;
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed), background-color var(--transition-speed);
+}
+
+.blog-post-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.blog-post-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.blog-post-card h3 {
+    padding: 1rem 1rem 0;
+    font-size: 1.4rem;
+    color: var(--primary-color);
+}
+
+.blog-post-card p {
+    padding: 0 1rem;
+    font-size: 0.9rem;
+}
+
+.blog-post-card .btn {
+    margin: 1rem;
+}
+
+.blog .view-all-btn {
+    display: block;
+    width: fit-content;
+    margin: var(--spacing-md) auto 0;
+}
+
+/* Contact Section */
+.contact-content {
+    display: flex;
+    flex-direction: column; /* Stack on mobile by default */
+    gap: var(--spacing-lg);
+    align-items: center;
+    text-align: center; /* Center form fields */
+}
+
+.contact-form-container {
+    flex: 2;
+    width: 100%; /* Take full width on stacked layout */
+    max-width: 600px; /* Max width for the form */
+    background-color: var(--card-background);
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    transition: background-color var(--transition-speed);
+}
+
+.contact-form .form-group {
+    margin-bottom: 1.5rem;
+    text-align: left; /* Align labels/inputs to the left within the form container */
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    background-color: var(--background-color);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: var(--text-color);
+    transition: border-color var(--transition-speed), background-color var(--transition-speed);
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.2);
+}
+
+.contact-form textarea {
+    resize: vertical;
+}
+
+.contact-info {
+    flex: 1;
+    width: 100%; /* Take full width on stacked layout */
+    max-width: 400px; /* Max width for contact info */
+    background-color: var(--card-background);
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    transition: background-color var(--transition-speed);
+}
+
+.contact-info h3 {
+    margin-top: 0;
+    color: var(--primary-color);
+}
+
+.contact-info p {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center content */
+    gap: 0.8rem;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.contact-info p i {
+    color: var(--secondary-color);
+    font-size: 1.3rem;
+}
+
+.contact-info a {
+    color: var(--text-color);
+    font-weight: 500;
+}
+.contact-info a:hover {
+    color: var(--accent-color);
+}
+
+.social-links {
+    margin-top: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+    display: flex;
+    gap: var(--spacing-md);
+    justify-content: center;
+}
+
+.social-links a {
+    color: var(--text-color);
+    transition: color var(--transition-speed), transform var(--transition-speed);
+}
+
+.social-links a:hover {
+    color: var(--primary-color);
+    transform: translateY(-3px);
+}
+
+.book-consult-btn {
+    width: 100%;
+    max-width: 300px; /* Constrain button width */
+    margin: var(--spacing-md) auto 0; /* Center button */
+}
+
+/* Footer */
+.footer {
+    background-color: var(--card-background);
+    color: var(--light-text-color);
+    padding: var(--spacing-md) 0;
+    text-align: center;
+    border-top: 1px solid var(--border-color);
+    transition: background-color var(--transition-speed), border-color var(--transition-speed);
+}
+
+.footer .container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.footer p {
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.footer-nav {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 0.5rem;
+}
+
+.footer-nav a {
+    color: var(--light-text-color);
+    font-size: 0.9rem;
+}
+
+.footer-nav a:hover {
+    color: var(--primary-color);
+}
+
+/* ------------------------------------------- */
+/* RESPONSIVE DESIGN - MEDIA QUERIES (REVISED) */
+/* ------------------------------------------- */
+
+/* Laptop / Desktop adjustments (993px and up) */
+@media (min-width: 993px) {
+    .hero-content {
+        flex-direction: row; /* Desktop layout */
+        text-align: left;
+    }
+    .hero-text {
+        text-align: left;
+    }
+    .hero-bullets ul, .hero-actions {
+        justify-content: flex-start; /* Align to left on desktop */
+    }
+    .about-content {
+        flex-direction: row; /* Desktop layout: text on left, visuals on right */
+        text-align: left;
+        align-items: flex-start;
+    }
+    .about-visuals {
+        align-items: flex-start; /* Align timeline items to the left within visuals card */
+    }
+    .timeline-item {
+        align-items: flex-start; /* Align icon, heading, paragraph to the left */
+        text-align: left; /* Text inside timeline item aligns left */
+    }
+    .timeline-item h3 {
+        text-align: left; /* Explicitly ensure left alignment for heading */
+    }
+    .timeline-item p {
+        margin-left: 0; /* Remove auto margins for left alignment */
+        margin-right: 0;
+    }
+    .contact-content {
+        flex-direction: row;
+        text-align: left;
+        align-items: flex-start;
+    }
+    .contact-info p {
+        justify-content: flex-start;
+    }
+    .book-consult-btn {
+        width: auto;
+        margin: var(--spacing-md) 0 0 0;
+    }
+}
+
+
+/* Tablets and smaller laptops (max-width: 992px) */
+@media (max-width: 992px) {
+    h1 { font-size: clamp(2rem, 7vw, 3.5rem); }
+    h2 { font-size: clamp(1.8rem, 6vw, 2.5rem); }
+    h3 { font-size: clamp(1.4rem, 5vw, 1.8rem); }
+
+    .container {
+        padding: 0 var(--spacing-sm); /* Reduce horizontal padding */
+    }
+
+    /* Header & Navigation */
+    .nav-menu {
+        /* Mobile menu styles - hidden by default */
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        right: -100%; /* Start off-screen */
+        width: 70%; /* Adjust width as needed */
+        max-width: 300px;
+        height: 100vh;
+        background-color: var(--card-background);
+        box-shadow: -5px 0 15px rgba(0,0,0,0.2);
+        padding-top: var(--spacing-xl);
+        transition: right var(--transition-speed);
+        z-index: 999; /* Below header, above content */
+    }
+
+    .nav-menu.active {
+        right: 0; /* Slide in */
+    }
+
+    .nav-menu ul {
+        flex-direction: column;
+        gap: var(--spacing-lg);
+        text-align: center;
+        width: 100%;
+    }
+
+    .nav-menu ul li a {
+        padding: 1rem 0;
+        display: block;
+        font-size: 1.2rem;
+        border-bottom: 1px solid var(--border-color);
+    }
+    .nav-menu ul li:last-child a {
+        border-bottom: none;
+    }
+    .nav-menu a::after { /* Remove hover underline on mobile menu */
+        display: none;
+    }
+
+    .mobile-nav-toggle {
+        display: block; /* Show hamburger on smaller screens */
+        font-size: 1.8rem;
+        margin-left: var(--spacing-sm);
+    }
+
+    /* Header specific fix: Ensure logo is left and actions are right. */
+    /* No 'order' or 'flex-direction: column' here for the container! */
+    .header .container {
+        /* It already inherits 'display: flex; justify-content: space-between; align-items: center;' from global */
+        /* This ensures logo left, actions right */
+        padding: 0 var(--spacing-sm); /* Adjust padding for tablets */
+    }
+
+
+    /* General section padding */
+    section {
+        padding: var(--spacing-lg) 0;
+    }
+
+    /* Hero adjustments */
+    .hero {
+        padding: var(--spacing-lg) 0;
+        min-height: auto; /* Allow height to adjust */
+    }
+    .hero-text h1 {
+        font-size: clamp(2rem, 7vw, 3rem); /* Smaller on smaller screens */
+    }
+    .hero-text .hero-subtext {
+        font-size: clamp(1rem, 3.5vw, 1.2rem);
+    }
+    .hero-image {
+        margin-top: var(--spacing-md);
+        max-width: 250px; /* Smaller image on mobile */
+    }
+    .hero-actions .btn {
+        width: 100%; /* Stack buttons */
+        max-width: 280px; /* Max width for stacked buttons */
+    }
+
+    /* About Me adjustments (content direction handled in default styles) */
+    .about-content {
+        gap: var(--spacing-md);
+    }
+    .about-text {
+        text-align: center;
+    }
+    .about-visuals {
+        text-align: center;
+        padding: var(--spacing-sm);
+    }
+
+    /* Skills, Projects, Demos, Certs grids - minmax adjustment */
+    .skills-grid, .project-grid, .demos-grid, .blog-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+    /* CERTIFICATION FIX: One card per row on mobile for screens up to 992px */
+    .cert-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Contact adjustments */
+    .contact-info p {
+        flex-direction: column; /* Stack icon and text */
+        align-items: center;
+        gap: 0.5rem;
+    }
+    .contact-form .form-group {
+        text-align: left; /* Keep form labels left-aligned */
+    }
+    .book-consult-btn {
+        margin-left: auto;
+        margin-right: auto; /* Center button when stacked */
+    }
+}
+
+/* Small mobile devices (max-width: 480px) */
+@media (max-width: 480px) {
+    h1 { font-size: clamp(1.8rem, 8vw, 2.5rem); }
+    h2 { font-size: clamp(1.6rem, 7vw, 2rem); }
+    h3 { font-size: clamp(1.2rem, 6vw, 1.4rem); }
+
+    .container {
+        padding: 0 var(--spacing-xs); /* Even less padding on tiny screens */
+    }
+
+    .header {
+        padding: 0.8rem 0;
+    }
+    .logo {
+        font-size: 1.5rem;
+    }
+    .theme-toggle, .mobile-nav-toggle {
+        font-size: 1.3rem;
+    }
+    /* Header Container - Ensure consistent left-right alignment for smallest screens */
+    .header .container {
+        /* Already inheriting flex, space-between from global. No need to override to row or set margins here. */
+        padding: 0 var(--spacing-xs); /* Adjust padding for smallest phones */
+    }
+
+    section {
+        padding: var(--spacing-lg) 0;
+    }
+
+    .hero-text .hero-subtext {
+        font-size: clamp(0.9rem, 3.5vw, 1.1rem);
+    }
+    .hero-bullets li {
+        font-size: 0.9rem;
+    }
+    .hero-actions .btn {
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    /* Adjust project card image height */
+    .project-card img, .demo-video {
+        height: 160px;
+    }
+    .project-info h3 {
+        font-size: 1.3rem;
+    }
+
+    /* CERTIFICATION FIX: One card per row on mobile */
+    .cert-grid {
+        grid-template-columns: 1fr;
+    }
+    .cert-card h3 {
+        font-size: 1rem;
+    }
+    .cert-card p {
+        font-size: 0.8rem;
+    }
+    .cert-link {
+        font-size: 0.85rem;
+    }
+}
+
+/* Styles for the fade-in effect */
+.hidden-section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.hidden-section.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
