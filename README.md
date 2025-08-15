@@ -1,6 +1,7 @@
 # Reuel Abletia - Software QA Specialist Portfolio Website
 
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-View%20Website-brightgreen?style=for-the-badge&logo=vercel)](https://reuelabletia.github.io/My-Portfolio/)
+
 _Click the badge above to visit the live portfolio website!_
 
 ## 🚀 Overview
