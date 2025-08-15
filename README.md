@@ -3,9 +3,6 @@
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-View%20Website-brightgreen?style=for-the-badge&logo=vercel)](https://reuelabletia.github.io/My-Portfolio/)
 _Click the badge above to visit the live portfolio website!_
 
-![Hero Section Screenshot - Light Mode](assets\images\Hero Background.jpg)
-_Replace this with an actual screenshot of your hero section in light mode, after you've populated it._
-
 ## 🚀 Overview
 
 This repository hosts the source code for my personal portfolio website, meticulously designed to showcase my expertise as a **Software QA Specialist**. The site not only lists my skills but proactively *proves* them through detailed project case studies, automation demos, and a clean, responsive user experience.
