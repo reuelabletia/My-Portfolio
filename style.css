@@ -336,6 +336,19 @@ section:last-of-type {
     border-bottom: none;
 }
 
+/* ADDED THIS BLOCK FOR SCROLL OFFSET - KEPT */
+/* Ensure anchors don't hide under fixed header */
+#hero,
+#about,
+#skills,
+#projects,
+#demos,
+#certifications,
+#contact {
+    scroll-margin-top: 90px; /* Adjust this value to be slightly more than your header's height */
+}
+
+
 /* About Me Section */
 .about-content {
     display: flex;
@@ -479,8 +492,8 @@ section:last-of-type {
     box-shadow: 0 4px 15px rgba(0,0,0,0.05);
     overflow: hidden;
     transition: transform var(--transition-speed), box-shadow var(--transition-speed), background-color var(--transition-speed);
-    display: flex;
-    flex-direction: column;
+    display: flex; /* MODIFIED: Add flex to card for button alignment - KEPT */
+    flex-direction: column; /* MODIFIED: Stack contents vertically - KEPT */
 }
 
 .project-card:hover {
@@ -503,8 +516,8 @@ section:last-of-type {
 .project-info {
     padding: var(--spacing-md);
     flex-grow: 1;
-    display: flex;
-    flex-direction: column;
+    display: flex; /* MODIFIED: Add flex to project-info - KEPT */
+    flex-direction: column; /* MODIFIED: Stack contents vertically - KEPT */
 }
 
 .project-info h3 {
@@ -536,8 +549,7 @@ section:last-of-type {
 }
 
 .project-info .btn {
-    margin-top: auto;
-    align-self: flex-start;
+    margin-top: auto; /* ADDED THIS LINE: Pushes the button to the bottom - KEPT */
 }
 
 .private-project .private-badge {
@@ -569,6 +581,8 @@ section:last-of-type {
     box-shadow: 0 4px 15px rgba(0,0,0,0.05);
     text-align: center;
     transition: transform var(--transition-speed), box-shadow var(--transition-speed), background-color var(--transition-speed);
+    display: flex; /* ADDED THIS LINE: Make demo-item a flex container - KEPT */
+    flex-direction: column; /* ADDED THIS LINE: Stack its children vertically - KEPT */
 }
 
 .demo-item:hover {
@@ -579,6 +593,10 @@ section:last-of-type {
 .demo-item h3 {
     color: var(--primary-color);
     margin-bottom: var(--spacing-sm);
+    min-height: 60px; /* MODIFIED THIS LINE: Ensure consistent height for titles (adjust as needed) - KEPT */
+    display: flex; /* Make h3 a flex container to center text if it wraps - KEPT */
+    align-items: center; /* Vertically center text if min-height is larger than content - KEPT */
+    justify-content: center; /* Horizontally center text - KEPT */
 }
 
 .demo-video {
@@ -601,8 +619,8 @@ section:last-of-type {
 
 /* Certifications Section */
 .cert-grid {
+    /* MODIFIED THIS LINE: Removed auto-fit and minmax from global to control with media queries */
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* Adjusted minmax for smaller cards */
     gap: var(--spacing-md);
     justify-content: center;
 }
@@ -614,6 +632,9 @@ section:last-of-type {
     box-shadow: 0 4px 15px rgba(0,0,0,0.05);
     text-align: center;
     transition: transform var(--transition-speed), box-shadow var(--transition-speed), background-color var(--transition-speed);
+    display: flex; /* ADDED THIS LINE: Make cert-card a flex container - KEPT */
+    flex-direction: column; /* ADDED THIS LINE: Stack its children vertically - KEPT */
+    align-items: center; /* ADDED THIS LINE: Center content horizontally within the card */
 }
 
 .cert-card:hover {
@@ -625,12 +646,17 @@ section:last-of-type {
     max-width: 100px;
     height: auto;
     margin-bottom: var(--spacing-sm);
+    /* No need for margin: 0 auto; if parent is flex with align-items: center; */
 }
 
 .cert-card h3 {
     font-size: 1.2rem;
     margin-top: 0;
     color: var(--text-color);
+    min-height: 45px; /* ADDED THIS LINE: Ensure consistent height for certificate titles */
+    display: flex; /* Make h3 a flex container to vertically center text */
+    align-items: center; /* Vertically center text if min-height is larger */
+    justify-content: center; /* Horizontally center text */
 }
 
 .cert-card p {
@@ -643,6 +669,7 @@ section:last-of-type {
     display: inline-block;
     color: var(--secondary-color);
     font-weight: 500;
+    margin-top: auto; /* ADDED THIS LINE: Pushes the link to the bottom - KEPT */
 }
 .cert-link:hover {
     color: var(--primary-color);
@@ -898,6 +925,11 @@ section:last-of-type {
         width: auto;
         margin: var(--spacing-md) 0 0 0;
     }
+
+    /* ADDED THIS BLOCK: Desktop-specific cert grid layout */
+    .cert-grid {
+        grid-template-columns: repeat(4, 1fr); /* 4 items per row on desktop */
+    }
 }
 
 
@@ -1009,7 +1041,7 @@ section:last-of-type {
     .skills-grid, .project-grid, .demos-grid, .blog-grid {
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     }
-    /* CERTIFICATION FIX: One card per row on mobile for screens up to 992px */
+    /* CERTIFICATION FIX: One card per row on mobile for screens up to 992px - KEPT */
     .cert-grid {
         grid-template-columns: 1fr;
     }
@@ -1077,7 +1109,7 @@ section:last-of-type {
         font-size: 1.3rem;
     }
 
-    /* CERTIFICATION FIX: One card per row on mobile */
+    /* CERTIFICATION FIX: One card per row on mobile - KEPT */
     .cert-grid {
         grid-template-columns: 1fr;
     }
