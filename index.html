@@ -332,26 +332,38 @@
             <div class="demos-grid">
                 <div class="demo-item">
                     <h3>Katalon</h3>
-                    <video controls muted autoplay loop src="assets/videos/Katalon Sample Demo.mp4" class="demo-video">
-                        <!-- IMPORTANT: Replace with your actual video path for a Katalon demo -->
-                        Your browser does not support the video tag.
-                    </video>    
+                    <!-- MODIFIED BLOCK START: Replaced video with YouTube link and thumbnail -->
+                    <a href="#" class="video-thumbnail-link" data-video-id="mp5MX2VvGaQ">
+                        <img src="assets/images/Youtube Thumbnail.jpg" alt="Katalon/Selenium Demo Thumbnail">
+                        <div class="play-icon-overlay">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </a>
+                    <!-- MODIFIED BLOCK END -->
                     <p>Short clip demonstrating automated CMS test execution.</p>
                 </div>
                 <div class="demo-item">
                     <h3>JMeter Performance Test</h3>
-                    <video controls muted autoplay loop src="assets/videos/Sample Video 2.mp4" class="demo-video">
-                        <!-- IMPORTANT: Replace with your actual video path for a JMeter demo -->
-                        Your browser does not support the video tag.
-                    </video>
-                    <p>Visualizing load testing with JMeter metrics and results/No video created yet.</p>
+                    <!-- MODIFIED BLOCK START: Replaced video with YouTube link and thumbnail -->
+                    <a href="#" class="video-thumbnail-link" data-video-id="wDchsz8nmbo">
+                        <img src="assets/images/Youtube Thumbnail.jpg" alt="JMeter Demo Thumbnail">
+                        <div class="play-icon-overlay">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </a>
+                    <!-- MODIFIED BLOCK END -->
+                    <p>Visualizing load testing with JMeter metrics and results.</p>
                 </div>
                 <div class="demo-item">
                     <h3>OWASP ZAP Security Scan</h3>
-                    <video controls muted autoplay loop src="assets/videos/Owaspzap Sample Demo.mp4" class="demo-video">
-                        <!-- IMPORTANT: Replace with your actual video path for an OWASP ZAP demo -->
-                        Your browser does not support the video tag.
-                    </video>
+                    <!-- MODIFIED BLOCK START: Replaced video with YouTube link and thumbnail -->
+                    <a href="#" class="video-thumbnail-link" data-video-id="t5lxrepZoTU">
+                        <img src="assets/images/Youtube Thumbnail.jpg" alt="OWASP ZAP Demo Thumbnail">
+                        <div class="play-icon-overlay">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </a>
+                    <!-- MODIFIED BLOCK END -->
                     <p>Showcasing a security scan with OWASP ZAP.</p>
                 </div>
             </div>
@@ -405,6 +417,36 @@
                     <p>Sololearn</p>
                     <a href="assets/certificates/SQL.pdf" target="_blank" class="cert-link">View Certificate <i class="fas fa-external-link-alt"></i></a>
                 </div>
+                <!-- Certification Card Example 6 -->
+                <div class="cert-card">
+                    <img src="assets/images/Certificate Icon_1.png" alt="Google Cloud Applied AI Summit Badge">
+                    <h3>Google Cloud Applied AI Summit</h3>
+                    <p>Google Cloud</p>
+                    <a href="assets/certificates/Google Cloud Applied AI Summit.pdf" target="_blank" class="cert-link">View Certificate <i class="fas fa-external-link-alt"></i></a>
+                </div>
+                <!-- Certification Card Example 7 -->
+                <div class="cert-card">
+                    <img src="assets/images/Certificate Icon_1.png" alt="Experiencing the Use of A.I. Tools in Teaching and Learning Badge">
+                    <h3>Experiencing the Use of A.I. Tools in Teaching and Learning</h3>
+                    <p>Benilde EDTECH</p>
+                    <a href="assets/certificates/AI Tools in Teaching and Learning.pdf" target="_blank" class="cert-link">View Certificate <i class="fas fa-external-link-alt"></i></a>
+                </div>
+                <!-- Certification Card Example 8 -->
+                <div class="cert-card">
+                    <img src="assets/images/Certificate Icon_1.png" alt="SMIT TECHTALK 2023: Disruptive Technology Badge">
+                    <h3>Disruptive Technology</h3>
+                    <p>SMIT - Benilde</p>
+                    <a href="assets/certificates/Disruptive Technologies.pdf" target="_blank" class="cert-link">View Certificate <i class="fas fa-external-link-alt"></i></a>
+                </div>
+                <!-- Certification Card Example 9 -->
+                <div class="cert-card">
+                    <img src="assets/images/Certificate Icon_1.png" alt="Samsung Developer Workshop Badge">
+                    <h3>Developer Workshop</h3>
+                    <p>SMIT - Benilde</p>
+                    <a href="assets/certificates/Samsung Developer Workshop.JPG" target="_blank" class="cert-link">View Certificate <i class="fas fa-external-link-alt"></i></a>
+                </div>                               
+
+
                 <!-- Add more certification cards as needed -->
             </div>
         </div>
@@ -496,6 +538,17 @@
             </div>
         </div>
     </footer>
+
+    <!-- Video Modal Structure (MODIFIED for close button and content) -->
+    <div id="videoModal" class="video-modal-overlay">
+        <div class="video-modal-content">
+            <span class="video-modal-close">&times;</span>
+            <div class="video-iframe-container">
+                <iframe id="youtube-iframe" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+    <!-- END Video Modal Structure -->
 
     <!-- Link to your JavaScript file -->
     <script src="script.js"></script>

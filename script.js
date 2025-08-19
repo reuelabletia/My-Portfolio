@@ -56,6 +56,51 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // Video Modal Logic (MODIFIED BLOCK)
+    const videoModal = document.getElementById('videoModal');
+    const youtubeIframe = document.getElementById('youtube-iframe');
+    const videoThumbnails = document.querySelectorAll('.video-thumbnail-link');
+    const closeModalBtn = document.querySelector('.video-modal-close');
+
+    videoThumbnails.forEach(thumbnail => {
+        thumbnail.addEventListener('click', (e) => {
+            e.preventDefault(); // Prevent default link behavior (opening new tab)
+            const videoId = thumbnail.dataset.videoId; // Get video ID from data-video-id attribute
+            if (videoId) {
+                // MODIFIED: Use youtube-nocookie.com and include enablejsapi=1
+                youtubeIframe.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0&enablejsapi=1`;
+                videoModal.classList.add('active');
+                document.body.classList.add('no-scroll'); // Prevent background scroll
+            }
+        });
+    });
+
+    // Function to close modal and stop video
+    function closeVideoModal() {
+        videoModal.classList.remove('active');
+        youtubeIframe.src = ''; // Stop the video by clearing its source
+        document.body.classList.remove('no-scroll'); // Re-enable background scroll
+    }
+
+    // Close modal when clicking the close button
+    closeModalBtn.addEventListener('click', closeVideoModal);
+
+    // Close modal when clicking outside the content (on the overlay itself)
+    videoModal.addEventListener('click', (e) => {
+        if (e.target === videoModal) { // Only if the click is directly on the overlay
+            closeVideoModal();
+        }
+    });
+
+    // Close modal with Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && videoModal.classList.contains('active')) {
+            closeVideoModal();
+        }
+    });
+    // END Video Modal Logic
+
+
     // Optional: Add simple fade-in on scroll for sections
     const sections = document.querySelectorAll('section');
 
@@ -79,16 +124,3 @@ document.addEventListener('DOMContentLoaded', () => {
         sectionObserver.observe(section);
     });
 });
-
-/* CSS for hidden-section and fade-in (add this to style.css)
-.hidden-section {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-}
-
-.hidden-section.fade-in {
-    opacity: 1;
-    transform: translateY(0);
-}
-*/

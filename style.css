@@ -19,8 +19,8 @@
     --spacing-xs: 0.5rem;
     --spacing-sm: 1rem;
     --spacing-md: 2rem;
-    --spacing-lg: 3rem; /* Slightly reduced for better mobile density */
-    --spacing-xl: 5rem; /* Slightly reduced for better mobile density */
+    --spacing-lg: 3rem;
+    --spacing-xl: 5rem;
 
     /* Border Radius */
     --border-radius: 8px;
@@ -31,15 +31,15 @@
 
 /* Dark Mode Overrides */
 body.dark-mode {
-    --primary-color: #6366F1; /* Indigo */
-    --secondary-color: #10B981; /* Emerald Green */
-    --accent-color: #FBBF24; /* Amber Yellow */
-    --background-color: #111827; /* Dark Blue-Gray */
+    --primary-color: #6366F1;
+    --secondary-color: #10B981;
+    --accent-color: #FBBF24;
+    --background-color: #111827;
     --card-background: #1F2937;
-    --text-color: #F3F4F6; /* Light Gray */
-    --light-text-color: #D1D5DB; /* Lighter Gray */
+    --text-color: #F3F4F6;
+    --light-text-color: #D1D5DB;
     --border-color: #374151;
-    --hero-overlay-color: rgba(17, 24, 39, 0.8); /* Dark background with transparency */
+    --hero-overlay-color: rgba(17, 24, 39, 0.8);
 }
 
 /* Base Styles */
@@ -79,7 +79,7 @@ h1, h2, h3 {
     transition: color var(--transition-speed);
 }
 
-h1 { font-size: 3.5rem; } /* Default desktop size */
+h1 { font-size: 3.5rem; }
 h2 { font-size: 2.5rem; margin-bottom: var(--spacing-md); text-align: center; }
 h3 { font-size: 1.8rem; }
 
@@ -104,17 +104,16 @@ ul {
 
 /* Buttons */
 .btn {
-    display: inline-flex; /* Changed from inline-block to inline-flex - KEPT */
-    align-items: center; /* Vertically center content - KEPT */
-    justify-content: center; /* Horizontally center content - KEPT */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     padding: 0.75rem 1.5rem;
     border-radius: var(--border-radius);
     font-weight: 500;
-    /* text-align: center; -- No longer strictly needed due to justify-content */
     cursor: pointer;
     transition: all var(--transition-speed);
     border: 2px solid transparent;
-    will-change: transform, background-color, color; /* ADDED THIS LINE */
+    will-change: transform, background-color, color;
 }
 
 .btn i {
@@ -123,27 +122,27 @@ ul {
 
 .primary-btn {
     background-color: var(--primary-color);
-    color: #fff; /* Initial text color is white */
+    color: #fff;
     border-color: var(--primary-color);
 }
 
 .primary-btn:hover {
     background-color: var(--accent-color);
     border-color: var(--accent-color);
-    color: #fff; /* ADDED THIS LINE - Explicitly ensure text color is white on hover */
+    color: #fff;
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
 .secondary-btn {
     background-color: transparent;
-    color: var(--primary-color); /* Initial text color is primary-color */
+    color: var(--primary-color);
     border-color: var(--primary-color);
 }
 
 .secondary-btn:hover {
     background-color: var(--primary-color);
-    color: #fff; /* Text color becomes white on hover - THIS WAS ALREADY PRESENT */
+    color: #fff;
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
@@ -166,7 +165,7 @@ ul {
 
 .header .container {
     display: flex;
-    justify-content: space-between; /* Ensures logo is left, actions right */
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -244,29 +243,29 @@ ul {
     align-items: center;
     position: relative;
     overflow: hidden;
-    text-align: center; /* Center content by default for smaller screens */
+    text-align: center;
 }
 
 .hero-content {
     display: flex;
-    flex-direction: column; /* Stack on mobile by default */
+    flex-direction: column;
     align-items: center;
     gap: var(--spacing-lg);
 }
 
 .hero-text {
-    flex: 1; /* Take full width on stacked layout */
-    max-width: 800px; /* Constrain text width on large screens */
+    flex: 1;
+    max-width: 800px;
 }
 
 .hero-text h1 {
-    font-size: clamp(2.5rem, 8vw, 4rem); /* Responsive font size */
+    font-size: clamp(2.5rem, 8vw, 4rem);
     margin-bottom: 1rem;
     color: var(--primary-color);
 }
 
 .hero-text .hero-subtext {
-    font-size: clamp(1.1rem, 3.5vw, 1.5rem); /* Responsive font size */
+    font-size: clamp(1.1rem, 3.5vw, 1.5rem);
     color: var(--light-text-color);
     margin-bottom: var(--spacing-md);
 }
@@ -276,11 +275,11 @@ ul {
     flex-wrap: wrap;
     gap: 1.5rem;
     margin-bottom: var(--spacing-md);
-    justify-content: center; /* Center bullets on mobile */
+    justify-content: center;
 }
 
 .hero-bullets li {
-    font-size: 1rem; /* Adjusted for mobile readability */
+    font-size: 1rem;
     color: var(--text-color);
 }
 
@@ -293,7 +292,7 @@ ul {
     display: flex;
     gap: var(--spacing-sm);
     flex-wrap: wrap;
-    justify-content: center; /* Center buttons on mobile */
+    justify-content: center;
 }
 
 .hero-image {
@@ -301,8 +300,8 @@ ul {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%; /* Ensure it takes available width */
-    max-width: 300px; /* Max size for the image on smaller screens */
+    width: 100%;
+    max-width: 300px;
 }
 
 .hero-image img {
@@ -315,7 +314,7 @@ ul {
     position: relative;
     z-index: 2;
     transition: border-color var(--transition-speed);
-    animation: float 3s ease-in-out infinite; /* Keep animation */
+    animation: float 3s ease-in-out infinite;
 }
 
 /* Optional: Subtle animation for hero image */
@@ -336,7 +335,6 @@ section:last-of-type {
     border-bottom: none;
 }
 
-/* ADDED THIS BLOCK FOR SCROLL OFFSET - KEPT */
 /* Ensure anchors don't hide under fixed header */
 #hero,
 #about,
@@ -345,17 +343,17 @@ section:last-of-type {
 #demos,
 #certifications,
 #contact {
-    scroll-margin-top: 90px; /* Adjust this value to be slightly more than your header's height */
+    scroll-margin-top: 90px;
 }
 
 
 /* About Me Section */
 .about-content {
     display: flex;
-    flex-direction: column; /* Stack on mobile by default */
-    align-items: center; /* Center content horizontally */
+    flex-direction: column;
+    align-items: center;
     gap: var(--spacing-lg);
-    text-align: center; /* Center text by default */
+    text-align: center;
 }
 
 .about-text {
@@ -372,48 +370,47 @@ section:last-of-type {
     width: 100%;
     max-width: 400px;
     display: flex;
-    flex-direction: column; /* Stack timeline items within visuals */
+    flex-direction: column;
     gap: var(--spacing-md);
     padding: var(--spacing-md);
     background-color: var(--card-background);
     border-radius: var(--border-radius);
     box-shadow: 0 4px 15px rgba(0,0,0,0.05);
     transition: background-color var(--transition-speed);
-    /* For visuals, align items centrally on mobile */
-    align-items: center; /* This aligns the timeline-item blocks themselves within the card */
+    align-items: center;
 }
 
 /* --- FIX FOR TIMELINE ITEMS --- */
 .timeline-item {
-    display: flex; /* Use flexbox for item itself */
-    flex-direction: column; /* Stack icon, heading, paragraph vertically */
-    align-items: center; /* Center the icon, heading, and paragraph horizontally */
-    gap: 0.5rem; /* Space between icon, heading, and paragraph */
-    padding: 0; /* No extra padding for this item itself */
-    text-align: center; /* Ensure text inside is centered on mobile */
-    margin-bottom: 1rem; /* Space between timeline items */
-    width: 100%; /* Ensure it takes available width within about-visuals */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0;
+    text-align: center;
+    margin-bottom: 1rem;
+    width: 100%;
 }
 
 .timeline-item i {
     font-size: 1.8rem;
     color: var(--secondary-color);
-    margin-bottom: 0.5rem; /* Space below icon */
+    margin-bottom: 0.5rem;
 }
 
 .timeline-item h3 {
-    margin-top: 0; /* Override default h3 margin-top */
+    margin-top: 0;
     color: var(--text-color);
     font-size: 1.4rem;
-    line-height: 1.2; /* Tighten line height for multi-line headings */
+    line-height: 1.2;
 }
 .timeline-item p {
     font-size: 0.95rem;
     line-height: 1.5;
     margin-bottom: 0;
     color: var(--light-text-color);
-    max-width: 250px; /* Constrain paragraph width for better readability within the item */
-    margin-left: auto; /* Center the paragraph if max-width is applied */
+    max-width: 250px;
+    margin-left: auto;
     margin-right: auto;
 }
 /* --- END FIX FOR TIMELINE ITEMS --- */
@@ -422,7 +419,7 @@ section:last-of-type {
 /* Skills Section */
 .skills-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Adjusted minmax */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: var(--spacing-md);
 }
 
@@ -482,7 +479,7 @@ section:last-of-type {
 /* Projects Section */
 .project-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Adjusted minmax */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: var(--spacing-md);
 }
 
@@ -492,8 +489,8 @@ section:last-of-type {
     box-shadow: 0 4px 15px rgba(0,0,0,0.05);
     overflow: hidden;
     transition: transform var(--transition-speed), box-shadow var(--transition-speed), background-color var(--transition-speed);
-    display: flex; /* MODIFIED: Add flex to card for button alignment - KEPT */
-    flex-direction: column; /* MODIFIED: Stack contents vertically - KEPT */
+    display: flex;
+    flex-direction: column;
 }
 
 .project-card:hover {
@@ -516,8 +513,8 @@ section:last-of-type {
 .project-info {
     padding: var(--spacing-md);
     flex-grow: 1;
-    display: flex; /* MODIFIED: Add flex to project-info - KEPT */
-    flex-direction: column; /* MODIFIED: Stack contents vertically - KEPT */
+    display: flex;
+    flex-direction: column;
 }
 
 .project-info h3 {
@@ -541,15 +538,11 @@ section:last-of-type {
     font-size: 0.9rem;
     margin-top: 0.5rem;
     color: var(--text-color);
-}
-
-.project-tools i, .project-impact i {
-    color: var(--secondary-color);
-    margin-right: 0.5rem;
+    margin-bottom: var(--spacing-md); /* MODIFIED: Increased space below impact text */
 }
 
 .project-info .btn {
-    margin-top: auto; /* ADDED THIS LINE: Pushes the button to the bottom - KEPT */
+    margin-top: auto;
 }
 
 .private-project .private-badge {
@@ -570,7 +563,7 @@ section:last-of-type {
 /* Automation & Testing Demos */
 .demos-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Adjusted minmax */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: var(--spacing-md);
 }
 
@@ -581,8 +574,8 @@ section:last-of-type {
     box-shadow: 0 4px 15px rgba(0,0,0,0.05);
     text-align: center;
     transition: transform var(--transition-speed), box-shadow var(--transition-speed), background-color var(--transition-speed);
-    display: flex; /* ADDED THIS LINE: Make demo-item a flex container - KEPT */
-    flex-direction: column; /* ADDED THIS LINE: Stack its children vertically - KEPT */
+    display: flex;
+    flex-direction: column;
 }
 
 .demo-item:hover {
@@ -593,20 +586,67 @@ section:last-of-type {
 .demo-item h3 {
     color: var(--primary-color);
     margin-bottom: var(--spacing-sm);
-    min-height: 60px; /* MODIFIED THIS LINE: Ensure consistent height for titles (adjust as needed) - KEPT */
-    display: flex; /* Make h3 a flex container to center text if it wraps - KEPT */
-    align-items: center; /* Vertically center text if min-height is larger than content - KEPT */
-    justify-content: center; /* Horizontally center text - KEPT */
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.demo-video {
+/* MODIFIED BLOCK: Styles for the new video thumbnail links (replaces .demo-video) */
+.video-thumbnail-link {
+    display: block;
+    position: relative;
     width: 100%;
     height: 200px;
-    background-color: #000;
     border-radius: var(--border-radius);
-    object-fit: contain;
+    overflow: hidden;
     margin-bottom: var(--spacing-sm);
+    background-color: #000;
+    cursor: pointer;
 }
+
+.video-thumbnail-link img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.video-thumbnail-link:hover img {
+    transform: scale(1.05);
+}
+
+.play-icon-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: var(--border-radius);
+    transition: background-color 0.3s ease;
+}
+
+.video-thumbnail-link:hover .play-icon-overlay {
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.play-icon-overlay i {
+    color: #fff;
+    font-size: 3rem;
+    opacity: 0.8;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.video-thumbnail-link:hover .play-icon-overlay i {
+    opacity: 1;
+    transform: scale(1.1);
+}
+/* END MODIFIED BLOCK */
+
 
 .github-link {
     text-align: center;
@@ -619,10 +659,10 @@ section:last-of-type {
 
 /* Certifications Section */
 .cert-grid {
-    /* MODIFIED THIS LINE: Removed auto-fit and minmax from global to control with media queries */
     display: grid;
     gap: var(--spacing-md);
     justify-content: center;
+    grid-template-columns: 1fr;
 }
 
 .cert-card {
@@ -632,9 +672,9 @@ section:last-of-type {
     box-shadow: 0 4px 15px rgba(0,0,0,0.05);
     text-align: center;
     transition: transform var(--transition-speed), box-shadow var(--transition-speed), background-color var(--transition-speed);
-    display: flex; /* ADDED THIS LINE: Make cert-card a flex container - KEPT */
-    flex-direction: column; /* ADDED THIS LINE: Stack its children vertically - KEPT */
-    align-items: center; /* ADDED THIS LINE: Center content horizontally within the card */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .cert-card:hover {
@@ -646,17 +686,16 @@ section:last-of-type {
     max-width: 100px;
     height: auto;
     margin-bottom: var(--spacing-sm);
-    /* No need for margin: 0 auto; if parent is flex with align-items: center; */
 }
 
 .cert-card h3 {
     font-size: 1.2rem;
     margin-top: 0;
     color: var(--text-color);
-    min-height: 45px; /* ADDED THIS LINE: Ensure consistent height for certificate titles */
-    display: flex; /* Make h3 a flex container to vertically center text */
-    align-items: center; /* Vertically center text if min-height is larger */
-    justify-content: center; /* Horizontally center text */
+    min-height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .cert-card p {
@@ -669,7 +708,7 @@ section:last-of-type {
     display: inline-block;
     color: var(--secondary-color);
     font-weight: 500;
-    margin-top: auto; /* ADDED THIS LINE: Pushes the link to the bottom - KEPT */
+    margin-top: auto;
 }
 .cert-link:hover {
     color: var(--primary-color);
@@ -725,16 +764,16 @@ section:last-of-type {
 /* Contact Section */
 .contact-content {
     display: flex;
-    flex-direction: column; /* Stack on mobile by default */
+    flex-direction: column;
     gap: var(--spacing-lg);
     align-items: center;
-    text-align: center; /* Center form fields */
+    text-align: center;
 }
 
 .contact-form-container {
     flex: 2;
-    width: 100%; /* Take full width on stacked layout */
-    max-width: 600px; /* Max width for the form */
+    width: 100%;
+    max-width: 600px;
     background-color: var(--card-background);
     padding: var(--spacing-md);
     border-radius: var(--border-radius);
@@ -744,7 +783,7 @@ section:last-of-type {
 
 .contact-form .form-group {
     margin-bottom: 1.5rem;
-    text-align: left; /* Align labels/inputs to the left within the form container */
+    text-align: left;
 }
 
 .contact-form label {
@@ -781,8 +820,8 @@ section:last-of-type {
 
 .contact-info {
     flex: 1;
-    width: 100%; /* Take full width on stacked layout */
-    max-width: 400px; /* Max width for contact info */
+    width: 100%;
+    max-width: 400px;
     background-color: var(--card-background);
     padding: var(--spacing-md);
     border-radius: var(--border-radius);
@@ -798,7 +837,7 @@ section:last-of-type {
 .contact-info p {
     display: flex;
     align-items: center;
-    justify-content: center; /* Center content */
+    justify-content: center;
     gap: 0.8rem;
     margin-bottom: 1rem;
     font-size: 1.1rem;
@@ -837,8 +876,8 @@ section:last-of-type {
 
 .book-consult-btn {
     width: 100%;
-    max-width: 300px; /* Constrain button width */
-    margin: var(--spacing-md) auto 0; /* Center button */
+    max-width: 300px;
+    margin: var(--spacing-md) auto 0;
 }
 
 /* Footer */
@@ -878,6 +917,112 @@ section:last-of-type {
     color: var(--primary-color);
 }
 
+/* MODIFIED BLOCK: Styles for the Video Modal (adjustments for close button always visible and outside video) */
+.video-modal-overlay {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 2000; /* Sit on top (higher than header) */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.9); /* Darker background for true "theater" mode */
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.video-modal-overlay.active {
+    display: flex; /* Show flex when active */
+    opacity: 1;
+    visibility: visible;
+}
+
+.video-modal-content {
+    position: relative; /* Crucial for absolute positioning of close button */
+    background-color: transparent; /* KEPT: No background for the content wrapper */
+    padding: 0; /* KEPT: No padding */
+    border-radius: 0; /* KEPT: No border-radius */
+    box-shadow: none; /* KEPT: No box-shadow */
+    max-width: 90%; /* Max width for responsiveness */
+    width: 800px; /* Ideal width for the video */
+    transform: translateY(-50px);
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.video-modal-overlay.active .video-modal-content {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.video-modal-close {
+    color: #fff; /* White color for contrast */
+    position: absolute; /* Position absolute relative to .video-modal-content */
+    top: -25px; /* MODIFIED: Adjusted for clean outside placement */
+    right: -25px; /* MODIFIED: Adjusted for clean outside placement */
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 10; /* Ensure it's above the video frame */
+    
+    opacity: 1; /* MODIFIED: Always visible when modal is active */
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+    
+    /* NEW: Styles to make the X button a distinct, floating, clickable element */
+    background-color: rgba(0,0,0,0.6); /* MODIFIED: Default background for visibility */
+    border-radius: 50%; /* Make it circular */
+    width: 50px; /* Fixed width for the circular button */
+    height: 50px; /* Fixed height for the circular button */
+    display: flex; /* Use flexbox to center the 'X' inside */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    line-height: 1; /* Ensure 'X' is perfectly centered */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.5); /* Subtle shadow for better visibility */
+}
+
+/* MODIFIED: Hover state for the close button itself */
+.video-modal-close:hover,
+.video-modal-close:focus {
+    color: var(--accent-color); /* Change color on hover */
+    background-color: rgba(0,0,0,0.8); /* Darker background on hover */
+    box-shadow: 0 0 10px rgba(255, 127, 0, 0.7); /* Glow effect on hover */
+    text-decoration: none;
+}
+
+.video-iframe-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio (9 / 16 * 100) */
+    height: 0;
+    overflow: hidden;
+    background-color: #000;
+    border-radius: var(--border-radius); /* Rounded corners for the video frame */
+}
+
+.video-iframe-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* MODIFIED: Responsive adjustment for the close button on small screens */
+@media (max-width: 480px) {
+    .video-modal-close {
+        font-size: 30px; /* Slightly smaller on tiny screens */
+        width: 40px; /* Adjust size */
+        height: 40px; /* Adjust size */
+        top: -15px; /* Adjust positioning for smaller screens */
+        right: -15px; /* Adjust positioning for smaller screens */
+    }
+}
+/* END MODIFIED Video Modal Styles */
+
 /* ------------------------------------------- */
 /* RESPONSIVE DESIGN - MEDIA QUERIES (REVISED) */
 /* ------------------------------------------- */
@@ -885,32 +1030,32 @@ section:last-of-type {
 /* Laptop / Desktop adjustments (993px and up) */
 @media (min-width: 993px) {
     .hero-content {
-        flex-direction: row; /* Desktop layout */
+        flex-direction: row;
         text-align: left;
     }
     .hero-text {
         text-align: left;
     }
     .hero-bullets ul, .hero-actions {
-        justify-content: flex-start; /* Align to left on desktop */
+        justify-content: flex-start;
     }
     .about-content {
-        flex-direction: row; /* Desktop layout: text on left, visuals on right */
+        flex-direction: row;
         text-align: left;
         align-items: flex-start;
     }
     .about-visuals {
-        align-items: flex-start; /* Align timeline items to the left within visuals card */
+        align-items: flex-start;
     }
     .timeline-item {
-        align-items: flex-start; /* Align icon, heading, paragraph to the left */
-        text-align: left; /* Text inside timeline item aligns left */
+        align-items: flex-start;
+        text-align: left;
     }
     .timeline-item h3 {
-        text-align: left; /* Explicitly ensure left alignment for heading */
+        text-align: left;
     }
     .timeline-item p {
-        margin-left: 0; /* Remove auto margins for left alignment */
+        margin-left: 0;
         margin-right: 0;
     }
     .contact-content {
@@ -926,9 +1071,8 @@ section:last-of-type {
         margin: var(--spacing-md) 0 0 0;
     }
 
-    /* ADDED THIS BLOCK: Desktop-specific cert grid layout */
     .cert-grid {
-        grid-template-columns: repeat(4, 1fr); /* 4 items per row on desktop */
+        grid-template-columns: repeat(4, 1fr);
     }
 }
 
@@ -940,29 +1084,28 @@ section:last-of-type {
     h3 { font-size: clamp(1.4rem, 5vw, 1.8rem); }
 
     .container {
-        padding: 0 var(--spacing-sm); /* Reduce horizontal padding */
+        padding: 0 var(--spacing-sm);
     }
 
     /* Header & Navigation */
     .nav-menu {
-        /* Mobile menu styles - hidden by default */
         display: flex;
         flex-direction: column;
         position: fixed;
         top: 0;
-        right: -100%; /* Start off-screen */
-        width: 70%; /* Adjust width as needed */
+        right: -100%;
+        width: 70%;
         max-width: 300px;
         height: 100vh;
         background-color: var(--card-background);
         box-shadow: -5px 0 15px rgba(0,0,0,0.2);
         padding-top: var(--spacing-xl);
         transition: right var(--transition-speed);
-        z-index: 999; /* Below header, above content */
+        z-index: 999;
     }
 
     .nav-menu.active {
-        right: 0; /* Slide in */
+        right: 0;
     }
 
     .nav-menu ul {
@@ -981,22 +1124,18 @@ section:last-of-type {
     .nav-menu ul li:last-child a {
         border-bottom: none;
     }
-    .nav-menu a::after { /* Remove hover underline on mobile menu */
+    .nav-menu a::after {
         display: none;
     }
 
     .mobile-nav-toggle {
-        display: block; /* Show hamburger on smaller screens */
+        display: block;
         font-size: 1.8rem;
         margin-left: var(--spacing-sm);
     }
 
-    /* Header specific fix: Ensure logo is left and actions are right. */
-    /* No 'order' or 'flex-direction: column' here for the container! */
     .header .container {
-        /* It already inherits 'display: flex; justify-content: space-between; align-items: center;' from global */
-        /* This ensures logo left, actions right */
-        padding: 0 var(--spacing-sm); /* Adjust padding for tablets */
+        padding: 0 var(--spacing-sm);
     }
 
 
@@ -1008,21 +1147,21 @@ section:last-of-type {
     /* Hero adjustments */
     .hero {
         padding: var(--spacing-lg) 0;
-        min-height: auto; /* Allow height to adjust */
+        min-height: auto;
     }
     .hero-text h1 {
-        font-size: clamp(2rem, 7vw, 3rem); /* Smaller on smaller screens */
+        font-size: clamp(2rem, 7vw, 3rem);
     }
     .hero-text .hero-subtext {
         font-size: clamp(1rem, 3.5vw, 1.2rem);
     }
     .hero-image {
         margin-top: var(--spacing-md);
-        max-width: 250px; /* Smaller image on mobile */
+        max-width: 250px;
     }
     .hero-actions .btn {
-        width: 100%; /* Stack buttons */
-        max-width: 280px; /* Max width for stacked buttons */
+        width: 100%;
+        max-width: 280px;
     }
 
     /* About Me adjustments (content direction handled in default styles) */
@@ -1041,23 +1180,27 @@ section:last-of-type {
     .skills-grid, .project-grid, .demos-grid, .blog-grid {
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     }
-    /* CERTIFICATION FIX: One card per row on mobile for screens up to 992px - KEPT */
     .cert-grid {
         grid-template-columns: 1fr;
     }
 
     /* Contact adjustments */
     .contact-info p {
-        flex-direction: column; /* Stack icon and text */
+        flex-direction: column;
         align-items: center;
         gap: 0.5rem;
     }
     .contact-form .form-group {
-        text-align: left; /* Keep form labels left-aligned */
+        text-align: left;
     }
     .book-consult-btn {
         margin-left: auto;
-        margin-right: auto; /* Center button when stacked */
+        margin-right: auto;
+    }
+
+    /* MODIFIED: Video Modal on smaller screens */
+    .video-modal-content {
+        max-width: 95%; /* Give a bit more space on very small screens */
     }
 }
 
@@ -1068,7 +1211,7 @@ section:last-of-type {
     h3 { font-size: clamp(1.2rem, 6vw, 1.4rem); }
 
     .container {
-        padding: 0 var(--spacing-xs); /* Even less padding on tiny screens */
+        padding: 0 var(--spacing-xs);
     }
 
     .header {
@@ -1080,10 +1223,8 @@ section:last-of-type {
     .theme-toggle, .mobile-nav-toggle {
         font-size: 1.3rem;
     }
-    /* Header Container - Ensure consistent left-right alignment for smallest screens */
     .header .container {
-        /* Already inheriting flex, space-between from global. No need to override to row or set margins here. */
-        padding: 0 var(--spacing-xs); /* Adjust padding for smallest phones */
+        padding: 0 var(--spacing-xs);
     }
 
     section {
@@ -1102,25 +1243,31 @@ section:last-of-type {
     }
 
     /* Adjust project card image height */
-    .project-card img, .demo-video {
+    .project-card img, .video-thumbnail-link {
         height: 160px;
     }
     .project-info h3 {
         font-size: 1.3rem;
     }
 
-    /* CERTIFICATION FIX: One card per row on mobile - KEPT */
     .cert-grid {
         grid-template-columns: 1fr;
     }
     .cert-card h3 {
-        font-size: 1.0rem; /* Adjusted for even smaller screens */
+        font-size: 1.0rem;
     }
     .cert-card p {
         font-size: 0.8rem;
     }
     .cert-link {
         font-size: 0.85rem;
+    }
+
+    /* MODIFIED: Video modal close button on very small screens */
+    .video-modal-close {
+        font-size: 30px; /* Slightly smaller on tiny screens */
+        top: 10px;
+        right: 10px;
     }
 }
 
