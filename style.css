@@ -478,8 +478,10 @@ section:last-of-type {
 
 /* Projects Section */
 .project-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    /* MODIFIED: Changed to flexbox for centering partial rows */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center items when there are fewer than a full row */
     gap: var(--spacing-md);
 }
 
@@ -491,6 +493,12 @@ section:last-of-type {
     transition: transform var(--transition-speed), box-shadow var(--transition-speed), background-color var(--transition-speed);
     display: flex;
     flex-direction: column;
+    
+    /* MODIFIED: Base width for mobile (1 item per row) */
+    width: 100%; /* Default to full width on smallest screens */
+    max-width: 350px; /* Optional: cap maximum width for single item on larger mobile screens */
+    flex-grow: 0; /* Crucial to prevent items from growing */
+    flex-shrink: 0; /* Crucial to prevent items from shrinking below content */
 }
 
 .project-card:hover {
@@ -538,7 +546,7 @@ section:last-of-type {
     font-size: 0.9rem;
     margin-top: 0.5rem;
     color: var(--text-color);
-    margin-bottom: var(--spacing-md); /* MODIFIED: Increased space below impact text */
+    margin-bottom: var(--spacing-md); /* Increased space below impact text */
 }
 
 .project-info .btn {
@@ -562,9 +570,10 @@ section:last-of-type {
 
 /* Automation & Testing Demos */
 .demos-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: var(--spacing-md);
+    display: flex; /* MODIFIED: Use flexbox for flexible item arrangement */
+    flex-wrap: wrap; /* MODIFIED: Allow items to wrap to the next line */
+    justify-content: center; /* MODIFIED: Center items when there are fewer than a full row */
+    gap: var(--spacing-md); /* KEPT: Maintains spacing between cards */
 }
 
 .demo-item {
@@ -576,6 +585,12 @@ section:last-of-type {
     transition: transform var(--transition-speed), box-shadow var(--transition-speed), background-color var(--transition-speed);
     display: flex;
     flex-direction: column;
+    
+    /* MODIFIED: Base width for mobile (1 item per row) */
+    width: 100%; /* Default to full width on smallest screens */
+    max-width: 350px; /* Optional: cap maximum width for single item on larger mobile screens */
+    flex-grow: 0; /* Crucial to prevent items from growing */
+    flex-shrink: 0; /* Crucial to prevent items from shrinking below content */
 }
 
 .demo-item:hover {
@@ -659,10 +674,13 @@ section:last-of-type {
 
 /* Certifications Section */
 .cert-grid {
-    display: grid;
+    /* MODIFIED: Changed to flexbox for centering partial rows */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center items when there are fewer than a full row */
     gap: var(--spacing-md);
-    justify-content: center;
-    grid-template-columns: 1fr;
+    /* Default for mobile, 1 column, overridden by media queries */
+    /* grid-template-columns: 1fr; -- No longer needed with flexbox */
 }
 
 .cert-card {
@@ -675,6 +693,12 @@ section:last-of-type {
     display: flex;
     flex-direction: column;
     align-items: center;
+    
+    /* MODIFIED: Base width for mobile (1 item per row) */
+    width: 100%; /* Default to full width on smallest screens */
+    max-width: 250px; /* Optional: cap maximum width for single item on larger mobile screens */
+    flex-grow: 0; /* Crucial to prevent items from growing */
+    flex-shrink: 0; /* Crucial to prevent items from shrinking below content */
 }
 
 .cert-card:hover {
@@ -917,17 +941,17 @@ section:last-of-type {
     color: var(--primary-color);
 }
 
-/* MODIFIED BLOCK: Styles for the Video Modal (adjustments for close button always visible and outside video) */
+/* Video Modal Styles */
 .video-modal-overlay {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 2000; /* Sit on top (higher than header) */
+    display: none;
+    position: fixed;
+    z-index: 2000;
     left: 0;
     top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgba(0,0,0,0.9); /* Darker background for true "theater" mode */
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.9);
     justify-content: center;
     align-items: center;
     opacity: 0;
@@ -936,19 +960,19 @@ section:last-of-type {
 }
 
 .video-modal-overlay.active {
-    display: flex; /* Show flex when active */
+    display: flex;
     opacity: 1;
     visibility: visible;
 }
 
 .video-modal-content {
-    position: relative; /* Crucial for absolute positioning of close button */
-    background-color: transparent; /* KEPT: No background for the content wrapper */
-    padding: 0; /* KEPT: No padding */
-    border-radius: 0; /* KEPT: No border-radius */
-    box-shadow: none; /* KEPT: No box-shadow */
-    max-width: 90%; /* Max width for responsiveness */
-    width: 800px; /* Ideal width for the video */
+    position: relative;
+    background-color: transparent;
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
+    max-width: 90%;
+    width: 800px;
     transform: translateY(-50px);
     opacity: 0;
     transition: transform 0.3s ease, opacity 0.3s ease;
@@ -960,20 +984,20 @@ section:last-of-type {
 }
 
 .video-modal-close {
-    color: #fff; /* White color for contrast */
+    color: #fff;
     position: absolute; /* Position absolute relative to .video-modal-content */
-    top: -25px; /* MODIFIED: Adjusted for clean outside placement */
-    right: -25px; /* MODIFIED: Adjusted for clean outside placement */
+    top: -25px; /* Adjusted for clean outside placement */
+    right: -25px; /* Adjusted for clean outside placement */
     font-size: 40px;
     font-weight: bold;
     cursor: pointer;
     z-index: 10; /* Ensure it's above the video frame */
     
-    opacity: 1; /* MODIFIED: Always visible when modal is active */
+    opacity: 1; /* Always visible when modal is active */
     transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
     
     /* NEW: Styles to make the X button a distinct, floating, clickable element */
-    background-color: rgba(0,0,0,0.6); /* MODIFIED: Default background for visibility */
+    background-color: rgba(0,0,0,0.6); /* Default background for visibility */
     border-radius: 50%; /* Make it circular */
     width: 50px; /* Fixed width for the circular button */
     height: 50px; /* Fixed height for the circular button */
@@ -984,7 +1008,7 @@ section:last-of-type {
     box-shadow: 0 2px 5px rgba(0,0,0,0.5); /* Subtle shadow for better visibility */
 }
 
-/* MODIFIED: Hover state for the close button itself */
+/* Hover state for the close button itself */
 .video-modal-close:hover,
 .video-modal-close:focus {
     color: var(--accent-color); /* Change color on hover */
@@ -1021,7 +1045,7 @@ section:last-of-type {
         right: -15px; /* Adjust positioning for smaller screens */
     }
 }
-/* END MODIFIED Video Modal Styles */
+
 
 /* ------------------------------------------- */
 /* RESPONSIVE DESIGN - MEDIA QUERIES (REVISED) */
@@ -1071,9 +1095,32 @@ section:last-of-type {
         margin: var(--spacing-md) 0 0 0;
     }
 
-    .cert-grid {
-        grid-template-columns: repeat(4, 1fr);
+    /* MODIFIED BLOCK: Desktop-specific project grid layout (3 items per row, fixed width, centered) */
+    .project-grid .project-card {
+        width: calc(33.333% - (2 * var(--spacing-md) / 3)); /* Calculate width for 3 items with gaps */
+        max-width: none; /* Let the calc handle the width */
+        flex-grow: 0; /* Crucial for fixed width */
+        flex-shrink: 0; /* Crucial for fixed width */
     }
+    /* END MODIFIED BLOCK */
+
+    /* MODIFIED BLOCK: Desktop-specific demos grid layout (3 items per row, fixed width, centered) */
+    .demos-grid .demo-item {
+        width: calc(33.333% - (2 * var(--spacing-md) / 3)); /* Calculate width for 3 items with gaps */
+        max-width: none; /* Let the calc handle the width */
+        flex-grow: 0; /* Crucial to prevent items from growing */
+        flex-shrink: 0; /* Crucial to prevent items from shrinking below content */
+    }
+    /* END MODIFIED BLOCK */
+
+    /* MODIFIED BLOCK: Desktop-specific cert grid layout (4 items per row, fixed width, centered) */
+    .cert-grid .cert-card {
+        width: calc(25% - (3 * var(--spacing-md) / 4)); /* Calculate width for 4 items with gaps */
+        max-width: none; /* Let the calc handle the width */
+        flex-grow: 0; /* Crucial to prevent items from growing */
+        flex-shrink: 0; /* Crucial to prevent items from shrinking below content */
+    }
+    /* END MODIFIED BLOCK */
 }
 
 
@@ -1176,13 +1223,38 @@ section:last-of-type {
         padding: var(--spacing-sm);
     }
 
-    /* Skills, Projects, Demos, Certs grids - minmax adjustment */
-    .skills-grid, .project-grid, .demos-grid, .blog-grid {
+    /* Skills, Blog grids - minmax adjustment */
+    .skills-grid, .blog-grid {
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     }
-    .cert-grid {
-        grid-template-columns: 1fr;
+    
+    /* MODIFIED BLOCK: Tablets-specific project grid layout (2 items per row, fixed width, centered) */
+    .project-grid .project-card {
+        width: calc(50% - (var(--spacing-md) / 2)); /* Calculate width for 2 items with gap */
+        max-width: none; /* Let the calc handle the width */
+        flex-grow: 0;
+        flex-shrink: 0;
     }
+    /* END MODIFIED BLOCK */
+
+    /* MODIFIED BLOCK: Tablets-specific demos grid layout (2 items per row, fixed width, centered) */
+    .demos-grid .demo-item {
+        width: calc(50% - (var(--spacing-md) / 2)); /* Calculate width for 2 items with gap */
+        max-width: none; /* Let the calc handle the width */
+        flex-grow: 0;
+        flex-shrink: 0;
+    }
+    /* END MODIFIED BLOCK */
+
+    /* MODIFIED BLOCK: Tablets-specific cert grid layout (2 items per row, fixed width, centered) */
+    .cert-grid .cert-card {
+        width: calc(50% - (var(--spacing-md) / 2)); /* Calculate width for 2 items with gap */
+        max-width: none; /* Let the calc handle the width */
+        flex-grow: 0;
+        flex-shrink: 0;
+    }
+    /* END MODIFIED BLOCK */
+
 
     /* Contact adjustments */
     .contact-info p {
@@ -1250,24 +1322,41 @@ section:last-of-type {
         font-size: 1.3rem;
     }
 
-    .cert-grid {
-        grid-template-columns: 1fr;
+    /* MODIFIED BLOCK: Mobile-specific project grid layout (1 item per row, fixed width, centered) */
+    .project-grid .project-card {
+        width: 100%; /* Default is 100% on smallest screens */
+        max-width: 300px; /* Cap maximum width to match single card ideal size */
+        flex-grow: 0;
+        flex-shrink: 0;
     }
-    .cert-card h3 {
-        font-size: 1.0rem;
+    /* END MODIFIED BLOCK */
+
+    /* MODIFIED BLOCK: Mobile-specific demos grid layout (1 item per row, fixed width, centered) */
+    .demos-grid .demo-item {
+        width: 100%; /* Default is 100% on smallest screens */
+        max-width: 300px; /* Optional: cap maximum width to match single card ideal size */
+        flex-grow: 0;
+        flex-shrink: 0;
     }
-    .cert-card p {
-        font-size: 0.8rem;
+    /* END MODIFIED BLOCK */
+
+    /* MODIFIED BLOCK: Mobile-specific cert grid layout (1 item per row, fixed width, centered) */
+    .cert-grid .cert-card {
+        width: 100%; /* Default is 100% on smallest screens */
+        max-width: 300px; /* Optional: cap maximum width to match single card ideal size */
+        flex-grow: 0;
+        flex-shrink: 0;
     }
-    .cert-link {
-        font-size: 0.85rem;
-    }
+    /* END MODIFIED BLOCK */
+
 
     /* MODIFIED: Video modal close button on very small screens */
     .video-modal-close {
-        font-size: 30px; /* Slightly smaller on tiny screens */
-        top: 10px;
-        right: 10px;
+        font-size: 30px;
+        width: 40px;
+        height: 40px;
+        top: -15px;
+        right: -15px;
     }
 }
 
