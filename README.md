@@ -86,11 +86,11 @@ This template is designed for easy customization:
 
 
 ## 🙏 Credits & Forking
-This resume was **designed and coded by [Reuel Haylar Abletia](https://github.com/reuelabletia)**.  
+This Portfolio was **designed and coded by [Reuel Haylar Abletia](https://github.com/reuelabletia)**.  
 If you fork or use this project, please **keep this attribution** to give credit where it's due.  
 
 Feel free to **customize it** for your own use — just don’t forget to acknowledge the original creator!  
 
 ---
 
-⭐ *If you like this resume, consider giving it a star on GitHub!*  
+⭐ *If you like this Portfolio, consider giving it a star on GitHub!*  
