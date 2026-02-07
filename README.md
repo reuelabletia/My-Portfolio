@@ -78,15 +78,19 @@ This template is designed for easy customization:
 *   **Content:** Replace all placeholder text, images, video paths, and links with your own professional information.
 *   **Add/Remove Sections:** The modular HTML and CSS make it easy to add more project cards, skill items, or even uncomment the blog section when ready.
 
-## 📫 Contact 
-📧 **Email:** [abletiareuel@gmail.com](mailto:abletiareuel@gmail.com) 
-💼 **LinkedIn:** [linkedin.com/in/reuelabletia](https://www.linkedin.com/in/reuelabletia/) 
-📍 **Location:** Pasay, Manila
+
+## 📫 Contact
+📧 **Email:** [abletiareuel@gmail.com](mailto:abletiareuel@gmail.com)  
+💼 **LinkedIn:** [linkedin.com/in/reuelabletia](https://www.linkedin.com/in/reuelabletia/)  
+📍 **Location:** Pasay, Manila  
+
 
 ## 🙏 Credits & Forking
 This resume was **designed and coded by [Reuel Haylar Abletia](https://github.com/reuelabletia)**.  
 If you fork or use this project, please **keep this attribution** to give credit where it's due.  
+
 Feel free to **customize it** for your own use — just don’t forget to acknowledge the original creator!  
 
---- 
-⭐ *If you like this resume, consider giving it a star on GitHub!*
+---
+
+⭐ *If you like this resume, consider giving it a star on GitHub!*  
