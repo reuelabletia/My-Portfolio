@@ -338,10 +338,12 @@ section:last-of-type {
 /* Ensure anchors don't hide under fixed header */
 #hero,
 #about,
+#experience,
 #skills,
 #projects,
 #demos,
 #certifications,
+#recommendations,
 #contact {
     scroll-margin-top: 90px;
 }
@@ -903,6 +905,347 @@ section:last-of-type {
     max-width: 300px;
     margin: var(--spacing-md) auto 0;
 }
+
+/* [NEW SECTION] Experience Timeline Styles */
+.experience {
+    background-color: var(--background-color);
+}
+
+.exp-timeline {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: var(--spacing-md) 0;
+}
+
+/* The vertical line */
+.exp-timeline::before {
+    content: '';
+    position: absolute;
+    left: 20px;
+    top: 0;
+    width: 2px;
+    height: 100%;
+    background-color: var(--border-color);
+}
+
+.exp-item {
+    position: relative;
+    margin-bottom: var(--spacing-lg);
+    padding-left: 60px;
+}
+
+.exp-dot {
+    position: absolute;
+    left: 11px;
+    top: 5px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: var(--secondary-color);
+    border: 4px solid var(--card-background);
+    box-shadow: 0 0 0 2px var(--secondary-color);
+    z-index: 2;
+    transition: transform var(--transition-speed);
+}
+
+.exp-item:hover .exp-dot {
+    transform: scale(1.3);
+}
+
+.exp-content {
+    background-color: var(--card-background);
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    transition: transform var(--transition-speed), background-color var(--transition-speed);
+}
+
+.exp-content:hover {
+    transform: translateX(10px);
+}
+
+.exp-date {
+    display: inline-block;
+    padding: 0.2rem 0.8rem;
+    background-color: var(--primary-color);
+    color: #fff;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border-radius: 20px;
+    margin-bottom: 0.8rem;
+}
+
+.exp-content h3 {
+    margin-bottom: 0.2rem;
+    font-size: 1.5rem;
+    color: var(--text-color);
+}
+
+.exp-company {
+    color: var(--secondary-color);
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.exp-content p {
+    font-size: 1rem;
+    margin-bottom: 0;
+}
+
+@media (min-width: 993px) {
+    .exp-timeline::before {
+        left: 50%;
+        margin-left: -1px;
+    }
+    .exp-item {
+        width: 50%;
+        padding-left: 0;
+    }
+    .exp-item:nth-child(even) {
+        margin-left: 50%;
+        padding-left: 50px;
+    }
+    .exp-item:nth-child(odd) {
+        padding-right: 50px;
+        text-align: right;
+    }
+    .exp-dot {
+        left: 50%;
+        margin-left: -10px;
+    }
+    .exp-item:nth-child(odd) .exp-content:hover {
+        transform: translateX(-10px);
+    }
+}
+
+/* [NEW SECTION] Recommendations Slider Styles */
+.recommendations {
+    overflow: hidden;
+    background-color: var(--background-color);
+}
+
+.testimonial-slider-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 50px;
+}
+
+.testimonial-slider-container {
+    overflow: hidden;
+    width: 100%;
+}
+
+.testimonial-track {
+    display: flex;
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+    gap: 20px;
+}
+
+/* --- Recommendations Update --- */
+
+/* Fixed height for all cards in the slider */
+.testimonial-card {
+    min-width: 100%; /* Default 1 per view on mobile */
+    min-height: 380px; /* Adjust based on your preference */
+    background-color: var(--card-background);
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: background-color var(--transition-speed);
+}
+
+/* Line Clamping: Truncate text to 4 lines */
+.testimonial-text.truncate {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 1rem;
+    flex-grow: 1; /* Pushes the button to the bottom */
+    font-style: italic;
+    line-height: 1.8;
+    color: var(--text-color);
+}
+
+/* Read More Button Styling */
+.read-more-btn {
+    background: none;
+    border: none;
+    color: var(--primary-color);
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: underline;
+    padding: 0;
+    font-size: 0.9rem;
+    align-self: flex-start;
+    margin-bottom: 1rem;
+    transition: color 0.3s ease;
+}
+
+.read-more-btn:hover {
+    color: var(--accent-color);
+}
+
+/* --- Enhanced Testimonial Modal Styles --- */
+
+/* 1. Modal Container Refinement */
+.testimonial-modal-box {
+    background-color: var(--card-background) !important;
+    padding: 3rem !important; /* Increased padding for all sides */
+    border-radius: 20px !important; /* Smoother, more modern corners */
+    max-width: 650px !important;
+    width: 90% !important;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); /* Softer shadow */
+    position: relative;
+    border: 1px solid var(--border-color); /* Subtle edge definition */
+}
+
+/* 2. Modal Body Spacing */
+.testimonial-modal-box h3 {
+    margin-bottom: 0.2rem;
+    font-size: 1.8rem;
+    padding-right: 40px; /* Prevent text hitting the X button */
+}
+
+.testimonial-modal-box hr {
+    margin: 1.5rem 0;
+    opacity: 0.5;
+}
+
+.full-text-content {
+    line-height: 1.8;
+    color: var(--text-color);
+    font-style: italic;
+    font-size: 1.05rem;
+    padding-bottom: 1rem;
+}
+
+/* 3. The Close (X) Button Animation & Design */
+.testimonial-modal-close {
+    color: var(--light-text-color);
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: var(--background-color);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Smooth transition */
+    border: 1px solid var(--border-color);
+}
+
+.testimonial-modal-close:hover {
+    color: var(--accent-color); /* Same as Read More hover */
+    background-color: var(--card-background);
+    transform: rotate(90deg); /* Smooth rotation animation */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Custom Scrollbar for the modal text */
+.testimonial-modal-box::-webkit-scrollbar {
+    width: 8px;
+}
+.testimonial-modal-box::-webkit-scrollbar-track {
+    background: transparent;
+}
+.testimonial-modal-box::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 10px;
+}
+
+/* Dark mode adjustment for modal close button */
+body.dark-mode .testimonial-modal-close {
+    color: #fff;
+}
+
+.testimonial-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+}
+
+.user-info h3 {
+    margin: 0;
+    font-size: 1.3rem;
+    color: var(--primary-color);
+}
+
+.user-info span {
+    font-size: 0.9rem;
+    color: var(--light-text-color);
+}
+
+.linkedin-icon {
+    color: #0077B5;
+    font-size: 1.5rem;
+}
+
+.testimonial-quote-icon {
+    align-self: flex-end;
+    color: var(--secondary-color);
+    opacity: 0.3;
+    font-size: 2rem;
+}
+
+/* Slider Buttons */
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: var(--card-background);
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 10;
+    transition: all var(--transition-speed);
+}
+
+.slider-btn:hover:not(:disabled) {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+.slider-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+    border-color: var(--border-color);
+    color: var(--light-text-color);
+}
+
+.slider-btn.prev { left: 0; }
+.slider-btn.next { right: 0; }
+
+@media (min-width: 768px) {
+    .testimonial-card {
+        min-width: calc(50% - 10px); /* 2 per view on tablet/desktop */
+    }
+}
+
+
 
 /* Footer */
 .footer {
