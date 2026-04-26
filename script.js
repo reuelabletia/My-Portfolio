@@ -177,4 +177,12 @@ document.addEventListener('DOMContentLoaded', () => {
         section.classList.add('hidden-section');
         sectionObserver.observe(section);
     });
+
+    // 9. Formspree Initialization (Already handled by HTML script, 
+    // but here is where you'd put custom logic if needed)
+    const contactForm = document.getElementById('contact-form');
+    if (contactForm) {
+        // The Formspree library will handle the 'submit' event automatically 
+        // because we called formspree('initForm', ...) in the HTML.
+    }
 });

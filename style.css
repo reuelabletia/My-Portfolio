@@ -882,6 +882,46 @@ section:last-of-type {
     color: var(--accent-color);
 }
 
+/* Contact Form Status Messages */
+[data-fs-success], [data-fs-error] {
+    display: none; /* Hidden by default */
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    margin-bottom: var(--spacing-md);
+    font-weight: 500;
+    text-align: center;
+}
+
+[data-fs-success] {
+    background-color: rgba(5, 150, 105, 0.1);
+    color: var(--secondary-color);
+    border: 1px solid var(--secondary-color);
+}
+
+[data-fs-error] {
+    background-color: rgba(239, 68, 68, 0.1);
+    color: #EF4444;
+    border: 1px solid #EF4444;
+}
+
+/* The Formspree library adds a .fs-form-success class to the form's parent or form itself when done */
+.fs-form-success #contact-form {
+    display: none;
+}
+
+/* Show the success/error blocks when Formspree activates them */
+[data-fs-success].fs-message-display, 
+[data-fs-error].fs-message-display {
+    display: block;
+}
+
+/* Disable button state */
+button[data-fs-submit-btn]:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    filter: grayscale(0.5);
+}
+
 .social-links {
     margin-top: var(--spacing-md);
     margin-bottom: var(--spacing-md);

@@ -976,44 +976,56 @@
             <h2>Get In Touch</h2>
             <div class="contact-content">
                 <div class="contact-form-container">
-                    <form action="https://formspree.io/f/xpwlnonj" method="POST" class="contact-form">
-                        <!-- IMPORTANT: Replace "your-form-id" with your actual Formspree form ID to receive emails. -->
-                        <!-- If you don't use Formspree, this form will not send emails without backend logic. -->
+                    <!-- Status Messages -->
+                    <div id="form-status-success" data-fs-success>
+                        <i class="fas fa-check-circle"></i> Message sent successfully! I'll get back to you soon.
+                    </div>
+                    <div id="form-status-error" data-fs-error>
+                        <i class="fas fa-exclamation-circle"></i> Oops! There was a problem submitting your form.
+                    </div>
+
+                    <form id="contact-form" action="https://formspree.io/f/xpwlnonj" method="POST" class="contact-form">
                         <div class="form-group">
                             <label for="name">Name</label>
-                            <input type="text" id="name" name="name" required>
+                            <input type="text" id="name" name="name" data-fs-field required>
                         </div>
                         <div class="form-group">
                             <label for="email">Email</label>
-                            <input type="email" id="email" name="email" required>
+                            <input type="email" id="email" name="email" data-fs-field required>
                         </div>
                         <div class="form-group">
                             <label for="message">Message</label>
-                            <textarea id="message" name="message" rows="6" required></textarea>
+                            <textarea id="message" name="message" rows="6" data-fs-field required></textarea>
                         </div>
-                        <button type="submit" class="btn primary-btn">Send Message <i class="fas fa-paper-plane"></i></button>
+                        <button type="submit" class="btn primary-btn" data-fs-submit-btn>
+                            Send Message <i class="fas fa-paper-plane"></i>
+                        </button>
                     </form>
                 </div>
                 <div class="contact-info">
                     <h3>Reach Out Directly</h3>
                     <p><i class="fas fa-envelope"></i> Email: <a href="mailto:abletiareuel@gmail.com">abletiareuel@gmail.com</a></p>
-                    <!-- IMPORTANT: Replace with your actual email address -->
                     <p><i class="fas fa-map-marker-alt"></i> Location: Pinagsama, Taguig</p>
 
                     <div class="social-links">
                         <a href="https://www.linkedin.com/in/reuelabletia/" target="_blank" aria-label="LinkedIn Profile"><i class="fab fa-linkedin fa-2x"></i></a>
-                        <!-- IMPORTANT: Replace with your actual LinkedIn profile URL -->
                         <a href="https://github.com/reuelabletia" target="_blank" aria-label="GitHub Profile"><i class="fab fa-github fa-2x"></i></a>
-                        <!-- IMPORTANT: Replace with your actual GitHub profile URL -->
                     </div>
 
                     <a href="mailto:abletiareuel@gmail.com?subject=Consultation%20Request" class="btn secondary-btn book-consult-btn">Book a Consultation <i class="fas fa-calendar-alt"></i></a>
-                     <!-- IMPORTANT: Replace with your actual email address or a Calendly link -->
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- ADD THESE TWO LINES AT THE VERY END OF YOUR HTML, AFTER YOUR OWN SCRIPT.JS -->
+    <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
+    <script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
+        formspree('initForm', { formElement: '#contact-form', formId: 'xpwlnonj' });
+    });
+    </script>
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
